@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result - {{ name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="School Logo" class="logo">
+        <h1>Gov. Secondary School - Reva</h1>
+    </header>
+
+    <main>
+        <div class="result-box">
+            <h2>Result of {{ name }} (Roll No: {{ roll }})</h2>
+
+            <!-- Result Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sub, mark in subjects.items() %}
+                    <tr>
+                        <td>{{ sub }}</td>
+                        <td>{{ mark }}</td>
+                        <td>{{ grades[sub] }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="total-row">
+                        <td>Total</td>
+                        <td>{{ total }}</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Chart Canvas -->
+            <canvas id="marksChart" width="400" height="200"></canvas>
+
+            <a href="/" class="back-btn">Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Gov. Secondary School - Reva</p>
+    </footer>
+
+    <!-- Chart.js Script -->
+    <script>
+        const ctx = document.getElementById('marksChart').getContext('2d');
+        const marksChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ subjects.keys()|list }},
+                datasets: [{
+                    label: 'Marks',
+                    data: {{ subjects.values()|list }},
+                    backgroundColor: [
+                        '#ff6384',
+                        '#36a2eb',
+                        '#ffcd56',
+                        '#4bc0c0',
+                        '#9966ff'
+                    ],
+                    borderColor: '#333',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Subject-wise Marks'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

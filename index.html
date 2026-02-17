@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>School Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>GOV. SECONDARY SCHOOL - REVA</h1>
+    <form method="POST">
+        <input type="text" name="student_name" placeholder="Student Name">
+        <input type="text" name="roll_no" placeholder="Roll No" required>
+        <button type="submit">Show Result</button>
+    </form>
+
+    {% if result %}
+        {% if result.error %}
+            <div class="result-box">{{ result.error }}</div>
+        {% else %}
+        <div class="result-box">
+            <h2>Result of {{ result.student_name }} (Roll No: {{ result.roll_no }})</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks Obtained</th>
+                    <th>Grade</th>
+                </tr>
+                {% for sub in result.subjects %}
+                <tr>
+                    <td>{{ sub.subject }}</td>
+                    <td>{{ sub.marks }}</td>
+                    <td>{{ sub.grade }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <th>Total</th>
+                    <th>{{ result.total_marks }} / {{ result.total_possible }}</th>
+                    <th>{{ result.overall_grade }}</th>
+                </tr>
+            </table>
+        </div>
+        {% endif %}
+    {% endif %}
+</div>
+</body>
+</html>

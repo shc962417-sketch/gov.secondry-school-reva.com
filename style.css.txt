@@ -1,0 +1,211 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Background Shapes */
+.animated-bg .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: float 10s infinite;
+}
+
+.animated-bg .circle:nth-child(1) { width: 100px; height: 100px; top: 10%; left: 20%; animation-duration: 12s; }
+.animated-bg .circle:nth-child(2) { width: 80px; height: 80px; top: 30%; left: 70%; animation-duration: 15s; }
+.animated-bg .circle:nth-child(3) { width: 120px; height: 120px; top: 60%; left: 40%; animation-duration: 18s; }
+.animated-bg .circle:nth-child(4) { width: 50px; height: 50px; top: 80%; left: 80%; animation-duration: 10s; }
+.animated-bg .circle:nth-child(5) { width: 90px; height: 90px; top: 50%; left: 10%; animation-duration: 14s; }
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-50px) rotate(180deg); }
+    100% { transform: translateY(0px) rotate(360deg); }
+}
+
+/* Header */
+header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 30px 10px;
+    color: white;
+}
+
+header .logo {
+    width: 100px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Welcome Box */
+.welcome-box, .result-box {
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.9);
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.welcome-box h2, .result-box h2 {
+    font-size: 2rem;
+    color: #764ba2;
+    margin-bottom: 15px;
+}
+
+.welcome-box input {
+    width: 80%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 2px solid #764ba2;
+    outline: none;
+    font-size: 1rem;
+}
+
+.welcome-box input:focus {
+    border-color: #ffb347;
+}
+
+.welcome-box button {
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.welcome-box button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+table th, table td {
+    border: 2px solid #764ba2;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background: #764ba2;
+    color: white;
+}
+
+.total-row {
+    font-weight: bold;
+    background: #ffb347;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+/* ========================
+   Responsive Design
+======================== */
+
+/* For tablets and small laptops */
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .welcome-box, .result-box {
+        width: 90%;
+        padding: 30px;
+        margin: 40px auto;
+    }
+
+    .welcome-box input {
+        width: 90%;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header .logo {
+        width: 80px;
+    }
+
+    .welcome-box, .result-box {
+        width: 95%;
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    .welcome-box h2, .result-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-box input {
+        width: 95%;
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .welcome-box button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    table th, table td {
+        font-size: 0.9rem;
+        padding: 8px;s
+    }
+}

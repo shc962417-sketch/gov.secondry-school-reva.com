@@ -1,0 +1,13 @@
+{
+    "101": {
+        "name": "Rahul",
+        "subjects": {
+            "Gujarati": 78,
+            "Hindi": 65,
+            "English": 72,
+            "Maths": 80,
+            "Science": 74,
+            "Social": 69
+        }
+    }
+}

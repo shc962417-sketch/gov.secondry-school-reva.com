@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Add Student</title>
+    <style>
+        body{
+            font-family: Arial;
+            background:#f2f2f2;
+            text-align:center;
+        }
+        .box{
+            background:white;
+            width:400px;
+            margin:60px auto;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+        input, select{
+            width:90%;
+            padding:10px;
+            margin:10px;
+        }
+        button{
+            background:#2c3e50;
+            color:white;
+            padding:10px 20px;
+            border:none;
+            cursor:pointer;
+        }
+        button:hover{
+            background:#34495e;
+        }
+        a{
+            display:block;
+            margin-top:15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Add Student Result</h2>
+
+```
+<form method="POST">
+    <input type="number" name="roll" placeholder="Roll Number" required>
+    <input type="text" name="name" placeholder="Student Name" required>
+
+    <select name="result">
+        <option value="Pass">Pass</option>
+        <option value="Fail">Fail</option>
+    </select>
+
+    <br>
+    <button type="submit">Save Student</button>
+</form>
+
+<a href="/">⬅ Back to Home</a>
+```
+
+</div>
+
+</body>
+</html>
